@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 
-body {
+ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
     font-size: 16px;
     line-height: 1.6;
-}
+} 
 
 h1,
 h2,
@@ -21,6 +21,7 @@ p {
 
 h1 {
     font-size: 24px;
+    color: #204672;
 }
 
 h2 {
@@ -39,7 +40,7 @@ p {
     background: white;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
+} 
 
 #dadosPessoais {
     display: flex;
@@ -74,10 +75,15 @@ form {
     border-radius: 5px;
 }
 
+.answers {
+    display: flex;
+    justify-content: space-between;
+}
+
 input,
 button {
     font-size: 1rem;
-    padding: 10px;
+    padding: 7px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -142,13 +148,54 @@ footer {
         font-size: 28px;
     }
 
+    .form-group {
+        text-align: center;
+    }
+
     .form-group label {
-        text-align: left;
+        display: inline-block;
+        width: auto;
+    }
+
+    .form-group input {
+        display: inline-block;  
+        width: auto;
     }
 }
 
 @media (min-width: 1024px) {
+    body {
+        padding: 40px;
+    }
+
     .container {
-        max-width: 800px;
+        max-width: 500px;
+        margin-top: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .form-group label {
+        text-align: center;
+    }
+
+    .form-group input {
+        text-align: center;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    #quiz {
+        width: 100%;
+        max-width: 600px; 
     }
 }
