@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz de Hidratação - Você está bem hidratado?</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="" </head>
 
 <body>
     <header>
@@ -26,8 +26,7 @@
                     <legend class="dados-legend">Informações Pessoais</legend>
                     <div class="form-group">
                         <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" placeholder="Digite o seu Nome"
-                            aria-label="Nome do usuário" required>
+                        <input type="text" id="nome" name="nome" placeholder="Digite o seu Nome" required>
                         <span class="error-message" id="nomeError"></span>
                     </div>
                     <div class="form-group">
@@ -92,17 +91,26 @@
                 </div>
             </fieldset>
 
-            <hr>
+            <fieldset>
+                <legend>Em geral você está satisfeito os seus cuidados com a saúde?</legend>
+                <div class="answers">
+                    <input type="radio" name="saude" id="saude1"><label for="saude1">Estou atisfeito</label>
+                    <input type="radio" name="saude" id="saude2"><label for="saude2">Poderia ser melhor</label>
+                    <input type="radio" name="saude" id="saude3"><label for="saude3">Não, tenho que melhorar</label>
+                </div>
+            </fieldset>
+
+
             <button type="submit">Enviar</button>
         </form>
     </section>
 
     <footer class="footer">
         <div class="footer-content">
-            <p>© 2025 Quiz Hidrata Aí!</p>
-            <p>Desenvolvido por Denis Beck.</p>
+            <p>© 2025 Quiz Hidrata Aí! Desenvolvido por Denis Beck</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
