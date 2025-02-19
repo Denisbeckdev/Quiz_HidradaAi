@@ -6,110 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz de Hidratação - Você está bem hidratado?</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="" </head>
+</head>
 
 <body>
     <header>
         <h1>Campanha Se Hidrata Aí!</h1>
         <img src="img/hidrata.jpeg" alt="Ilustração de pessoas se hidratando" class="card-image">
-        <p>O verão chegou e as chamadas ondas de calor tem sido a cada ano mais intensas. A falta de hidratação pode
+        <p>O verão chegou e as chamadas ondas de calor têm sido cada vez mais intensas. A falta de hidratação pode
             causar sérios problemas de saúde.
             <br>Pensando nisso, criamos a campanha <br><strong>"Se hidrata Aí!"</strong> para contribuir no cuidado da
             nossa comunidade.<br>
             Responda nosso quiz e descubra se sua rotina de hidratação está adequada!
         </p>
     </header>
-    <section id="dadosPessoais">
-        <div class="container">
-            <form id="dados">
-                <fieldset>
-                    <legend class="dados-legend">Informações Pessoais</legend>
-                    <div class="form-group">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" placeholder="Digite o seu Nome" required>
-                        <span class="error-message" id="nomeError"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="idade">Idade:</label>
-                        <input type="number" id="idade" name="idade" placeholder="Digite a sua idade" required min="1"
-                            max="120">
-                        <span class="error-message" id="idadeError"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="peso">Peso:</label>
-                        <input type="number" id="peso" name="peso" placeholder="Digite o seu peso" required min="10"
-                            max="300">
-                        <span class="error-message" id="pesoError"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="altura">Altura:</label>
-                        <input type="number" id="altura" name="altura" placeholder="Digite a sua altura" required
-                            min="0.5" max="2.5" step="0.01">
-                        <span class="error-message" id="alturaError"></span>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </section>
-    <section>
-        <form id="quiz">
+
+    <section id="formulario">
+        <form id="quizForm">
+            <!-- Dados Pessoais -->
+            <fieldset>
+                <legend class="dados-legend">Informações Pessoais</legend>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu Nome" required pattern="^[A-Za-z\s]+$" title="O nome pode conter apenas letras e espaços.">
+                </div>
+                <div class="form-group">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" placeholder="Digite a sua idade" required min="5"
+                        max="100">
+                </div>
+                <div class="form-group">
+                    <label for="peso">Peso:</label>
+                    <input type="number" id="peso" name="peso" placeholder="Digite o seu peso" required min="25"
+                        max="150">
+                </div>
+                <div class="form-group">
+                    <label for="altura">Altura:</label>
+                    <input type="number" id="altura" name="altura" placeholder="Digite a sua altura (ex: 1.80)" required min="0.5"
+                        max="2.5" step="0.01">
+                </div>
+            </fieldset>
+
+            <!-- Perguntas do Quiz -->
             <h2>Selecione a alternativa que melhor descreve seus hábitos diários:</h2>
             <fieldset>
                 <legend>Quantos copos de água você bebe por dia?</legend>
                 <div class="answers">
-                    <input type="radio" name="agua" id="agua1"><label for="agua1">Menos de 3</label>
-                    <input type="radio" name="agua" id="agua2"><label for="agua2">De 3 a 5</label>
-                    <input type="radio" name="agua" id="agua3"><label for="agua3">Entre 6 e 8</label>
-                    <input type="radio" name="agua" id="agua4"><label for="agua4">Mais de 8</label>
+                    <input type="radio" name="agua" id="agua1" value="4" required><label for="agua1">Mais de 8</label>
+                    <input type="radio" name="agua" id="agua2" value="3"><label for="agua2">Entre 6 a 8</label>
+                    <input type="radio" name="agua" id="agua3" value="2"><label for="agua3">De 3 a 5</label>
+                    <input type="radio" name="agua" id="agua4" value="1"><label for="agua4">Menos de 3</label>
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>Você costuma consumir sucos naturais ao invés de refrigerantes?</legend>
                 <div class="answers">
-                    <input type="radio" name="suco" id="suco1"><label for="suco1">Sim, muitas vezes</label>
-                    <input type="radio" name="suco" id="suco2"><label for="suco2">Às vezes</label>
-                    <input type="radio" name="suco" id="suco3"><label for="suco3">Quase nunca</label>
+                    <input type="radio" name="suco" id="suco1" value="4" required><label for="suco1">Sim, muitas vezes</label>
+                    <input type="radio" name="suco" id="suco2" value="3"><label for="suco2">Às vezes</label>
+                    <input type="radio" name="suco" id="suco3" value="2"><label for="suco3">Quase nunca</label>
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>Você inclui frutas e vegetais na sua alimentação diária?</legend>
                 <div class="answers">
-                    <input type="radio" name="fruta" id="fruta1"><label for="fruta1">Todos os dias</label>
-                    <input type="radio" name="fruta" id="fruta2"><label for="fruta2">As vezes/semana</label>
-                    <input type="radio" name="fruta" id="fruta3"><label for="fruta3">Raramente</label>
+                    <input type="radio" name="fruta" id="fruta1" value="4" required><label for="fruta1">Todos os dias</label>
+                    <input type="radio" name="fruta" id="fruta2" value="3"><label for="fruta2">Às vezes/semana</label>
+                    <input type="radio" name="fruta" id="fruta3" value="2"><label for="fruta3">Raramente</label>
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>Você já sentiu dor de cabeça ou tontura por não beber água suficiente?</legend>
                 <div class="answers">
-                    <input type="radio" name="dores" id="dor1"><label for="dor1">Sim, várias vezes</label>
-                    <input type="radio" name="dores" id="dor2"><label for="dor2">Algumas vezes</label>
-                    <input type="radio" name="dores" id="dor3"><label for="dor3">Nunca</label>
+                    <input type="radio" name="dores" id="dor1" value="4" required><label for="dor1">Nunca</label>
+                    <input type="radio" name="dores" id="dor2" value="3"><label for="dor2">Algumas vezes</label>
+                    <input type="radio" name="dores" id="dor3" value="2"><label for="dor3">Sim, várias vezes</label>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>Em geral você está satisfeito os seus cuidados com a saúde?</legend>
+                <legend>Em geral você está satisfeito com os seus cuidados com a saúde?</legend>
                 <div class="answers">
-                    <input type="radio" name="saude" id="saude1"><label for="saude1">Estou atisfeito</label>
-                    <input type="radio" name="saude" id="saude2"><label for="saude2">Poderia ser melhor</label>
-                    <input type="radio" name="saude" id="saude3"><label for="saude3">Não, tenho que melhorar</label>
+                    <input type="radio" name="saude" id="saude1" value="4" required><label for="saude1">Estou satisfeito</label>
+                    <input type="radio" name="saude" id="saude2" value="3"><label for="saude2">Poderia ser melhor</label>
+                    <input type="radio" name="saude" id="saude3" value="2"><label for="saude3">Não, tenho que melhorar</label>
                 </div>
             </fieldset>
 
-
-            <button type="submit">Enviar</button>
+            <!-- Botão de Envio -->
+            <button id="finalizar" type="submit">Enviar e Ver Resultado</button>
         </form>
     </section>
 
+    <div id="resultado"></div>
+
     <footer class="footer">
         <div class="footer-content">
-            <p>© 2025 Quiz Hidrata Aí! Desenvolvido por Denis Beck</p>
+            <p>© 2025 Quiz Hidrata Aí! <br>Desenvolvido por Denis Beck</p>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 

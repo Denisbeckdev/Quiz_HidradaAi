@@ -1,58 +1,55 @@
-// Função genérica para validar campos
-function validarCampo(campo, erro, min, max, mensagemErro) {
-    const valor = campo.value.trim();
-    if (valor === '' || valor < min || valor > max) {
-        erro.textContent = mensagemErro;
-        campo.classList.add('invalid');
-        return false;
+document.getElementById("quizForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Captura os valores dos campos de informações pessoais
+    let nome = document.getElementById("nome").value.trim();
+    let idade = document.getElementById("idade").value;
+    let peso = document.getElementById("peso").value;
+    let altura = document.getElementById("altura").value;
+
+    // Verifica se os campos obrigatórios foram preenchidos
+    if (!nome || !idade || !peso || !altura) {
+        alert("Por favor, preencha todas as informações pessoais antes de enviar!");
+        return;
+    }
+
+    // Obtém a pontuação das respostas do quiz
+    let pontuacaoTotal = 0;
+    let perguntas = ["agua", "suco", "fruta", "dores", "saude"];
+    let respostasSelecionadas = 0;
+
+    perguntas.forEach((pergunta) => {
+        let respostaSelecionada = document.querySelector(`input[name="${pergunta}"]:checked`);
+        if (respostaSelecionada) {
+            pontuacaoTotal += parseInt(respostaSelecionada.value);
+            respostasSelecionadas++;
+        }
+    });
+
+    // Verifica se todas as perguntas foram respondidas
+    if (respostasSelecionadas !== perguntas.length) {
+        alert("Por favor, responda todas as perguntas antes de enviar!");
+        return;
+    }
+
+    // Gera um feedback com base na pontuação total
+    let mensagem = "";
+    if (pontuacaoTotal >= 18) {
+        mensagem = "Parabéns, sua hidratação está ótima! Continue assim!";
+    } else if (pontuacaoTotal >= 12) {
+        mensagem = "Você está no caminho certo, mas pode melhorar sua hidratação.";
     } else {
-        erro.textContent = '';
-        campo.classList.remove('invalid');
-        return true;
+        mensagem = "Cuidado! Você precisa se hidratar mais para evitar problemas de saúde.";
     }
-}
 
-// Seleciona os elementos do DOM
-const nomeInput = document.getElementById('nome');
-const nomeError = document.getElementById('nomeError');
+    // Exibe o resultado na tela
+    document.getElementById("resultado").innerHTML = `
+        <h3>Resultado do Quiz Hidrata Aí</h3>
+        <p><strong>Nome:</strong> ${nome}</p>
+        <p><strong>Idade:</strong> ${idade} anos</p>
+        <p><strong>Conclusão:</strong> ${mensagem}</p>
+    `;
 
-const idadeInput = document.getElementById('idade');
-const idadeError = document.getElementById('idadeError');
-
-const pesoInput = document.getElementById('peso');
-const pesoError = document.getElementById('pesoError');
-
-const alturaInput = document.getElementById('altura');
-const alturaError = document.getElementById('alturaError');
-
-// Validação em tempo real
-nomeInput.addEventListener('input', () => {
-    validarCampo(nomeInput, nomeError, 2, 50, 'Por favor, insira um nome válido.');
-});
-
-idadeInput.addEventListener('input', () => {
-    validarCampo(idadeInput, idadeError, 1, 120, 'Por favor, insira uma idade válida.');
-});
-
-pesoInput.addEventListener('input', () => {
-    validarCampo(pesoInput, pesoError, 10, 300, 'Por favor, insira um peso válido.');
-});
-
-alturaInput.addEventListener('input', () => {
-    validarCampo(alturaInput, alturaError, 0.5, 2.5, 'Por favor, insira uma altura válida (ex: 1.80)');
-});
-
-// Validação ao enviar o formulário
-const dadosForm = document.getElementById('dados');
-
-dadosForm.addEventListener('submit', (event) => {
-    const nomeValido = validarCampo(nomeInput, nomeError, 2, 50, 'Por favor, insira um nome válido.');
-    const idadeValida = validarCampo(idadeInput, idadeError, 1, 120, 'Por favor, insira uma idade válida.');
-    const pesoValido = validarCampo(pesoInput, pesoError, 10, 300, 'Por favor, insira um peso válido.');
-    const alturaValida = validarCampo(alturaInput, alturaError, 0.5, 2.5, 'Por favor, insira uma altura válida.');
-
-    if (!nomeValido || !idadeValida || !pesoValido || !alturaValida) {
-        event.preventDefault();
-        alert('Por favor, preencha todos os campos corretamente.');
-    }
+    // Limpa o formulário após exibir o resultado
+    document.getElementById("quizForm").reset();
 });
