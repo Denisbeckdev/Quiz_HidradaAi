@@ -27,7 +27,8 @@
                 <legend class="dados-legend">Informações Pessoais</legend>
                 <div class="form-group">
                     <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o seu Nome" required pattern="^[A-Za-z\s]+$" title="O nome pode conter apenas letras e espaços.">
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu Nome" required
+                        pattern="^[A-Za-zÀ-ÿ\s]+$" title="O nome pode conter apenas letras e espaços.">
                 </div>
                 <div class="form-group">
                     <label for="idade">Idade:</label>
@@ -41,8 +42,8 @@
                 </div>
                 <div class="form-group">
                     <label for="altura">Altura:</label>
-                    <input type="number" id="altura" name="altura" placeholder="Digite a sua altura (ex: 1.80)" required min="0.5"
-                        max="2.5" step="0.01">
+                    <input type="number" id="altura" name="altura" placeholder="Digite a sua altura (ex: 1.80)" required
+                        min="0.5" max="2.5" step="0.01">
                 </div>
             </fieldset>
 
@@ -61,7 +62,8 @@
             <fieldset>
                 <legend>Você costuma consumir sucos naturais ao invés de refrigerantes?</legend>
                 <div class="answers">
-                    <input type="radio" name="suco" id="suco1" value="4" required><label for="suco1">Sim, muitas vezes</label>
+                    <input type="radio" name="suco" id="suco1" value="4" required><label for="suco1">Sim, muitas
+                        vezes</label>
                     <input type="radio" name="suco" id="suco2" value="3"><label for="suco2">Às vezes</label>
                     <input type="radio" name="suco" id="suco3" value="2"><label for="suco3">Quase nunca</label>
                 </div>
@@ -70,7 +72,8 @@
             <fieldset>
                 <legend>Você inclui frutas e vegetais na sua alimentação diária?</legend>
                 <div class="answers">
-                    <input type="radio" name="fruta" id="fruta1" value="4" required><label for="fruta1">Todos os dias</label>
+                    <input type="radio" name="fruta" id="fruta1" value="4" required><label for="fruta1">Todos os
+                        dias</label>
                     <input type="radio" name="fruta" id="fruta2" value="3"><label for="fruta2">Às vezes/semana</label>
                     <input type="radio" name="fruta" id="fruta3" value="2"><label for="fruta3">Raramente</label>
                 </div>
@@ -88,9 +91,12 @@
             <fieldset>
                 <legend>Em geral você está satisfeito com os seus cuidados com a saúde?</legend>
                 <div class="answers">
-                    <input type="radio" name="saude" id="saude1" value="4" required><label for="saude1">Estou satisfeito</label>
-                    <input type="radio" name="saude" id="saude2" value="3"><label for="saude2">Poderia ser melhor</label>
-                    <input type="radio" name="saude" id="saude3" value="2"><label for="saude3">Não, tenho que melhorar</label>
+                    <input type="radio" name="saude" id="saude1" value="4" required><label for="saude1">Estou
+                        satisfeito</label>
+                    <input type="radio" name="saude" id="saude2" value="3"><label for="saude2">Poderia ser
+                        melhor</label>
+                    <input type="radio" name="saude" id="saude3" value="2"><label for="saude3">Não, tenho que
+                        melhorar</label>
                 </div>
             </fieldset>
 
@@ -99,7 +105,17 @@
         </form>
     </section>
 
-    <div id="resultado"></div>
+    <!-- popup e Overlay -->
+    <div id="overlay" class="overlay hidden"></div>
+
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <img src="/img/hidrata.jpeg" alt="Ilustração de pessoas se hidratando" class="popup-image">
+            <h3>Resultado do Quiz Hidrata Aí</h3>
+            <p id="popupResultado"></p>
+            <button id="fecharpopup" class="popup-close">Fechar</button>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
